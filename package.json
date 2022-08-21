@@ -2,6 +2,7 @@
   "name": "github-dashboard",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://artyom-voitas.github.io",
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
@@ -12,6 +13,7 @@
     "bootstrap": "^5.2.0",
     "cross-env": "^7.0.3",
     "date-fns": "^2.29.1",
+    "gh-pages": "^4.0.0",
     "lodash": "^4.17.21",
     "prop-types": "^15.8.1",
     "query-string": "^7.1.1",
@@ -27,6 +29,7 @@
     "redux-thunk": "^2.4.1",
     "reset-css": "^5.0.1",
     "sass": "^1.54.0",
+    "save-dev": "^0.0.1-security",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -34,7 +37,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "run build": "serve -s build"
+    "run build": "serve -s build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
