@@ -1,0 +1,27 @@
+@import "./src/components/utilities/variables";
+
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.page, .current__page {
+  width: 32px;
+  height: 32px;
+  color: $color--white;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+  border-radius: $border--radius;
+}
+
+.page:hover {
+  border: 1px solid $color--gray;
+}
+
+.current__page {
+  background-color: $color--blue;
+}
