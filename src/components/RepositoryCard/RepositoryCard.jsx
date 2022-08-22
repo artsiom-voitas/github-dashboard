@@ -53,25 +53,25 @@ function RepositoryCard(_props)
           <div>
             <Header />
             <Alert variant="success" className="py-5">
-              <div className="d-flex justify-content-center align-items-center gap-5">
+              <div className="d-flex flex-wrap justify-content-center align-items-center gap-5">
                 <img
-                  src={owner["avatar_url"]}
-                  alt="Avatar"
-                  className="avatar"
+                    src={owner['avatar_url']}
+                    alt="Avatar"
+                    className="avatar"
                 />
                 <h3>
                   <a
-                    href={owner["html_url"]}
-                    target="_blank"
-                    className="link"
-                    rel="noreferrer"
+                      href={owner['html_url']}
+                      target="_blank"
+                      className="link"
+                      rel="noreferrer"
                   >
-                    {owner["login"]}
+                    {owner['login']}
                   </a>
                 </h3>
               </div>
-              <div className="d-flex justify-content-center flex-column align-items-center gap-1 mt-3">
-                <div className="d-flex align-items-center justify-content-center gap-2 mb-3">
+              <div className="d-flex flex-wrap justify-content-center flex-column align-items-center gap-1 mt-3">
+                <div className="d-flex flex-wrap align-items-center justify-content-center gap-2 mb-3">
                   <h2 className="me-3 mb-0">{repositoryName}</h2>
                   <img src={starImage} alt="Star" />
                   <h4 className="m-0">{repository['stargazers_count']}</h4>
@@ -107,7 +107,7 @@ function RepositoryCard(_props)
                           <a
                               href={stargazer['html_url']}
                               target="_blank"
-                              className="d-flex flex-column align-items-center justify-content-center gap-2 text-decoration-none"
+                              className="d-flex flex-wrap flex-column align-items-center justify-content-center gap-2 text-decoration-none"
                               rel="noreferrer"
                               key={index}
                           >
