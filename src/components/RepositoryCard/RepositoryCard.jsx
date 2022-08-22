@@ -11,35 +11,37 @@ import Loader from "../Loader/index";
 import "./repository-card.scss";
 import Alert from "react-bootstrap/Alert";
 
-function RepositoryCard(props) {
-  const { username, repositoryName } = useParams();
-  const dispatch = useDispatch();
-  const repository = useSelector((state) => state.repositoryReducer.items);
-  const commitDate = useSelector(
-    (state) => state.repositoryReducer.items["updated_at"]
-  );
-  const owner = useSelector((state) => state.repositoryReducer.owner);
-  const serverRespond = useSelector((state) => state.repositoryReducer.message);
-  const stargazers = useSelector(
-    (state) => state.repositoryStargazersReducer.stargazers
-  );
-  const tenTopStargazers = stargazers.slice(0, 10);
+function RepositoryCard(_props)
+{
+  const { username, repositoryName } = useParams()
+  const dispatch                     = useDispatch()
+  const repository                   = useSelector((state) => state.repositoryReducer.items)
+  const commitDate                   = useSelector(
+      (state) => state.repositoryReducer.items['updated_at'],
+  )
+  const owner                        = useSelector((state) => state.repositoryReducer.owner)
+  const serverRespond                = useSelector((state) => state.repositoryReducer.message)
+  const stargazers                   = useSelector(
+      (state) => state.repositoryStargazersReducer.stargazers,
+  )
+  const tenTopStargazers             = stargazers.slice(0, 10)
 
   useEffect(() => {
-    dispatch(getRepository(username, repositoryName));
-    dispatch(getRepositoryStargazers(username, repositoryName));
+    dispatch(getRepository(username, repositoryName))
+    dispatch(getRepositoryStargazers(username, repositoryName))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [username, repositoryName]);
+  }, [username, repositoryName])
 
-  const isLoading = useSelector((state) => state.repositoryReducer.isLoading);
+  const isLoading   = useSelector((state) => state.repositoryReducer.isLoading)
+  const description = repository.description
 
-  let formattedLastCommitDate;
+  let formattedLastCommitDate
   if (commitDate) {
-    formattedLastCommitDate = formatLastCommitDate(commitDate);
+    formattedLastCommitDate = formatLastCommitDate(commitDate)
   }
 
   if (!repository) {
-    return <ErrorMessage />;
+    return <ErrorMessage />
   }
 
   if (serverRespond === "Not Found") {
@@ -72,7 +74,7 @@ function RepositoryCard(props) {
                 <div className="d-flex align-items-center justify-content-center gap-2 mb-3">
                   <h2 className="me-3 mb-0">{repositoryName}</h2>
                   <img src={starImage} alt="Star" />
-                  <h4 className="m-0">{repository["stargazers_count"]}</h4>
+                  <h4 className="m-0">{repository['stargazers_count']}</h4>
                 </div>
                 <h6>Updated {formattedLastCommitDate} ago</h6>
               </div>
@@ -80,9 +82,11 @@ function RepositoryCard(props) {
                 Repository language: {repository.language}
               </div>
             </Alert>
-            <Alert variant="primary" className="text-center">
-              {repository.description}
-            </Alert>
+            {description && (
+                <Alert variant="primary" className="text-center">
+                  {repository.description}
+                </Alert>
+            )}
             <Alert variant="info">
               <h5 className="text-center mb-5">
                 The best contributors to the repository
@@ -90,19 +94,19 @@ function RepositoryCard(props) {
               <div className="d-flex gap-5 flex-wrap align-items-center justify-content-center">
                 {tenTopStargazers?.map((stargazer, index) => {
                   return (
-                    <a
-                      href={stargazer["html_url"]}
-                      target="_blank"
-                      className="d-flex flex-column align-items-center justify-content-center gap-2 text-decoration-none"
-                      rel="noreferrer"
-                      key={index}
-                    >
-                      <img
-                        src={stargazer["avatar_url"]}
-                        alt="contributor avatar"
-                        style={{
-                          width: 80,
-                          borderRadius: 75,
+                      <a
+                          href={stargazer['html_url']}
+                          target="_blank"
+                          className="d-flex flex-column align-items-center justify-content-center gap-2 text-decoration-none"
+                          rel="noreferrer"
+                          key={index}
+                      >
+                        <img
+                            src={stargazer['avatar_url']}
+                            alt="contributor avatar"
+                            style={{
+                              width:        80,
+                              borderRadius: 75,
                         }}
                       />
                       <p className="link">{stargazer["login"]}</p>
