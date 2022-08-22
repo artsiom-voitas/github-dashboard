@@ -35,7 +35,7 @@ function SearchPagination(props) {
         ) : (
             <Pagination.Prev href={setUrl(currentPage - 1)} />
         )}
-        {currentPage === 1 ? null : (
+        {currentPage !== 1 && (
             <Pagination.Item href={setUrl(1)}>1</Pagination.Item>
         )}
         {currentPage < 5 || pagesAmount <= 6 ? null : <Pagination.Ellipsis />}
@@ -71,7 +71,7 @@ function SearchPagination(props) {
               {currentPage + 2}
             </Pagination.Item>
         )}
-        {currentPage + 3 <= 6 && pagesAmount >= 6 ? (
+        {currentPage + 3 <= pagesAmount && currentPage <= 2 ? (
             <Pagination.Item href={setUrl(currentPage + 3)}>
               {currentPage + 3}
             </Pagination.Item>
@@ -82,7 +82,7 @@ function SearchPagination(props) {
             </Pagination.Item>
         ) : null}
 
-        {currentPage + 4 >= pagesAmount || pagesAmount <= 6 ? null : (
+        {currentPage + 4 > pagesAmount || pagesAmount <= 6 ? null : (
             <Pagination.Ellipsis />
         )}
         {currentPage + 3 > pagesAmount || pagesAmount < 6 ? null : (
