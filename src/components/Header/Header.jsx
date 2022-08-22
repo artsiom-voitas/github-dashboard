@@ -4,26 +4,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../../images/github-logo.svg";
 import "./header.scss";
-import { setCurrentSearchQuery } from "../../redux/searchRepositoriesReducer/actions";
 import { getRepositoriesBySearchQuery } from "../../redux/searchRepositoriesReducer/thunk";
 
-function Header(props) {
-  const [searchValue, setSearchValue] = useState("");
-  const dispatch = useDispatch();
-  const currentPage = useSelector(
-    (state) => state.searchRepositoriesReducer.currentPage
-  );
-  const currentSearchQuery = useSelector(
-    (state) => state.searchRepositoriesReducer.currentSearchQuery
-  );
+function Header(_props)
+{
+  const [searchValue, setSearchValue] = useState('')
+  const dispatch                      = useDispatch()
+  const currentPage                   = useSelector(
+      (state) => state.searchRepositoriesReducer.currentPage,
+  )
 
-  function onInputChange(event) {
-    setSearchValue(event.target.value);
+  function onInputChange(event)
+  {
+    setSearchValue(event.target.value)
   }
 
   function searchHandler() {
-    dispatch(setCurrentSearchQuery(searchValue));
-    dispatch(getRepositoriesBySearchQuery(currentSearchQuery, currentPage));
+    dispatch(getRepositoriesBySearchQuery(searchValue, currentPage))
   }
   const searchPlaceholder = "Search or jump to...";
   return (

@@ -3,7 +3,6 @@ import {
   searchRepositoriesRequest,
   searchRepositoriesSuccess,
   setCurrentPage,
-  setCurrentSearchQuery,
 } from "./actions";
 
 import { handleActions } from "redux-actions";
@@ -13,7 +12,6 @@ const initialState = {
   error: null,
   items: [],
   currentPage: 1,
-  currentSearchQuery: "",
   perPage: 10,
   totalCount: 0,
 };
@@ -36,9 +34,6 @@ export const searchRepositoriesReducer = handleActions(
     },
     [setCurrentPage.toString()]: (state, action) => {
       return { ...state, currentPage: action.payload };
-    },
-    [setCurrentSearchQuery.toString()]: (state, action) => {
-      return { ...state, currentSearchQuery: action.payload };
     },
   },
   initialState
