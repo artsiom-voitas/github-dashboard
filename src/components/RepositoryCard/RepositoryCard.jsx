@@ -82,39 +82,50 @@ function RepositoryCard(_props)
                 Repository language: {repository.language}
               </div>
             </Alert>
-            {description && (
+            {description ? (
                 <Alert variant="primary" className="text-center">
                   {repository.description}
                 </Alert>
+            ) : (
+                <Alert variant="primary" className="text-center font-italic">
+                  Repository doesn't have a description yet
+                </Alert>
             )}
-            <Alert variant="info">
-              <h5 className="text-center mb-5">
-                The best contributors to the repository
-              </h5>
-              <div className="d-flex gap-5 flex-wrap align-items-center justify-content-center">
-                {tenTopStargazers?.map((stargazer, index) => {
-                  return (
-                      <a
-                          href={stargazer['html_url']}
-                          target="_blank"
-                          className="d-flex flex-column align-items-center justify-content-center gap-2 text-decoration-none"
-                          rel="noreferrer"
-                          key={index}
-                      >
-                        <img
-                            src={stargazer['avatar_url']}
-                            alt="contributor avatar"
-                            style={{
-                              width:        80,
-                              borderRadius: 75,
-                        }}
-                      />
-                      <p className="link">{stargazer["login"]}</p>
-                    </a>
-                  );
-                })}
-              </div>
-            </Alert>
+            {tenTopStargazers.length < 1 ? (
+                <Alert variant="info">
+                  <h5 className="text-center font-italic f-16 mb-0">
+                    Repository doesn't have contributors yet
+                  </h5>
+                </Alert>) : (
+                <Alert variant="info">
+                  <h5 className="text-center mb-5">
+                    The best contributors to the repository
+                  </h5>
+                  <div className="d-flex gap-5 flex-wrap align-items-center justify-content-center">
+                    {tenTopStargazers?.map((stargazer, index) => {
+                      return (
+                          <a
+                              href={stargazer['html_url']}
+                              target="_blank"
+                              className="d-flex flex-column align-items-center justify-content-center gap-2 text-decoration-none"
+                              rel="noreferrer"
+                              key={index}
+                          >
+                            <img
+                                src={stargazer['avatar_url']}
+                                alt="contributor avatar"
+                                style={{
+                                  width:        80,
+                                  borderRadius: 75,
+                                }}
+                            />
+                            <p className="link">{stargazer['login']}</p>
+                          </a>
+                      )
+                    })}
+                  </div>
+                </Alert>
+            )}
           </div>
         ) : (
           <Loader />
