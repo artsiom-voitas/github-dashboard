@@ -1,44 +1,44 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .App {
-    line-height: 1.5;
-    max-width: 1012px;
-    margin: 0 auto 50px;
-    padding: 25px 15px 0;
-    font-family: Roboto, serif;
+  line-height: 1.5;
+  max-width: 1012px;
+  margin: 0 auto 50px;
+  padding: 25px 15px 0;
+  font-family: Roboto, serif;
 }
 
 .link__container {
-    margin: 50px auto;
-    max-width: 100px;
-    min-height: 60px;
-    text-align: center;
-    text-decoration: none;
+  margin: 50px auto;
+  max-width: 100px;
+  min-height: 60px;
+  text-align: center;
+  text-decoration: none;
 }
 
 .link {
-    color: black;
-    background: white;
-    padding: 10px 15px;
-    text-decoration: none;
-    border-radius: 8px;
-    text-underline: none !important;
+  color: black;
+  background: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 8px;
+  text-underline: none !important;
 }
 
 .font-italic {
-    font-style: italic;
+  font-style: italic;
 }
 
 .f-16 {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .transform-translate-50 {
-    transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%)
 }
 
 .min-w-320 {
-    min-width: 320px;
+  min-width: 320px;
 }

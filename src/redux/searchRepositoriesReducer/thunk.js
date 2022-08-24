@@ -1,12 +1,12 @@
-import { fetchRepositoriesBySearchQuery } from "../../services/repositories";
+import { fetchRepositoriesBySearchQuery } from '../../services/repositories';
 import {
   searchRepositoriesError,
   searchRepositoriesRequest,
-  searchRepositoriesSuccess,
-} from "./actions";
+  searchRepositoriesSuccess
+} from './actions';
 
 export function getRepositoriesBySearchQuery(searchQuery, page) {
-  return function (dispatch, getState) {
+  return function (dispatch) {
     dispatch(searchRepositoriesRequest());
     fetchRepositoriesBySearchQuery({ searchQuery, page })
       .then((result) => {

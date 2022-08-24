@@ -1,2 +1,3 @@
-import RepositoriesList from "./RepositoriesList";
+import RepositoriesList from './RepositoriesList';
+
 export default RepositoriesList;

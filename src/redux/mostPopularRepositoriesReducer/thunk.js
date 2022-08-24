@@ -1,12 +1,12 @@
-import { fetchMostRatedRepositories } from "../../services/repositories";
+import { fetchMostRatedRepositories } from '../../services/repositories';
 import {
   getPopularRepositoriesError,
   getPopularRepositoriesRequest,
-  getPopularRepositoriesSuccess,
-} from "./actions";
+  getPopularRepositoriesSuccess
+} from './actions';
 
 export function getMostPopularRepositories() {
-  return function (dispatch, _getState) {
+  return function (dispatch) {
     dispatch(getPopularRepositoriesRequest());
     fetchMostRatedRepositories()
       .then((result) => {

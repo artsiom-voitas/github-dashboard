@@ -1,2 +1,3 @@
-import SearchPagination from "./SearchPagination";
+import SearchPagination from './SearchPagination';
+
 export default SearchPagination;

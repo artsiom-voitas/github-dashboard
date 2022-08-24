@@ -53,7 +53,6 @@ This application is built on the GitHub API. With it, you can:
 * [![React][React.js]][React-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
-
 <!-- CONTACT -->
 
 ## Contact
@@ -68,7 +67,6 @@ Project Link: [https://github.com/artyom-voitas/github-dashboard](https://github
 ## Acknowledgments
 
 * [Artsiom Dadychanka](https://github.com/adadychanka) - teacher, mentor
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

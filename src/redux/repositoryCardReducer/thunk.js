@@ -1,12 +1,8 @@
-import { fetchRepository } from "../../services/repositories";
-import {
-  getRepositoryRequest,
-  getRepositorySuccess,
-  getRepositoryError,
-} from "./actions";
+import { fetchRepository } from '../../services/repositories';
+import { getRepositoryRequest, getRepositorySuccess, getRepositoryError } from './actions';
 
 export function getRepository(owner, repositoryName) {
-  return function (dispatch, _getState) {
+  return function (dispatch) {
     dispatch(getRepositoryRequest());
     fetchRepository(owner, repositoryName)
       .then((result) => {

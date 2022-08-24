@@ -1,31 +1,31 @@
 import {
   getRepositoryStargazersRequest,
   getRepositoryStargazersSuccess,
-  getRepositoryStargazersError,
-} from "./actions";
+  getRepositoryStargazersError
+} from './actions';
 
-import { handleActions } from "redux-actions";
+import { handleActions } from 'redux-actions';
 
 const initialState = {
   isLoading: false,
-  stargazers: [],
+  stargazers: []
 };
 
 export const repositoryStargazersReducer = handleActions(
   {
-    [getRepositoryStargazersRequest.toString()]: (state, _action) => {
+    [getRepositoryStargazersRequest.toString()]: (state) => {
       return { ...state, isLoading: true };
     },
     [getRepositoryStargazersSuccess.toString()]: (state, action) => {
       return {
         ...state,
         isLoading: false,
-        stargazers: action.payload,
+        stargazers: action.payload
       };
     },
     [getRepositoryStargazersError.toString()]: (state, action) => {
       return { ...state, isLoading: false, error: action.payload.error };
-    },
+    }
   },
   initialState
 );

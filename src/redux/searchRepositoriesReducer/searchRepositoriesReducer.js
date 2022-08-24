@@ -2,10 +2,10 @@ import {
   searchRepositoriesError,
   searchRepositoriesRequest,
   searchRepositoriesSuccess,
-  setCurrentPage,
-} from "./actions";
+  setCurrentPage
+} from './actions';
 
-import { handleActions } from "redux-actions";
+import { handleActions } from 'redux-actions';
 
 const initialState = {
   isLoading: false,
@@ -13,12 +13,12 @@ const initialState = {
   items: [],
   currentPage: 1,
   perPage: 10,
-  totalCount: 0,
+  totalCount: 0
 };
 
 export const searchRepositoriesReducer = handleActions(
   {
-    [searchRepositoriesRequest.toString()]: (state, _action) => {
+    [searchRepositoriesRequest.toString()]: (state) => {
       return { ...state, isLoading: true };
     },
     [searchRepositoriesSuccess.toString()]: (state, action) => {
@@ -26,7 +26,7 @@ export const searchRepositoriesReducer = handleActions(
         ...state,
         isLoading: false,
         items: action.payload.items,
-        totalCount: action.payload["total_count"],
+        totalCount: action.payload['total_count']
       };
     },
     [searchRepositoriesError.toString()]: (state, action) => {
@@ -34,7 +34,7 @@ export const searchRepositoriesReducer = handleActions(
     },
     [setCurrentPage.toString()]: (state, action) => {
       return { ...state, currentPage: action.payload };
-    },
+    }
   },
   initialState
 );

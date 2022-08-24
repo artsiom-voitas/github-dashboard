@@ -1,11 +1,11 @@
-import { createActions } from "redux-actions";
+import { createActions } from 'redux-actions';
 
 export const {
   getRepositoryStargazersRequest,
   getRepositoryStargazersSuccess,
-  getRepositoryStargazersError,
+  getRepositoryStargazersError
 } = createActions({
   GET_REPOSITORY_STARGAZERS_REQUEST: (payload) => payload,
   GET_REPOSITORY_STARGAZERS_SUCCESS: (payload) => payload,
-  GET_REPOSITORY_STARGAZERS_ERROR: (payload) => payload,
+  GET_REPOSITORY_STARGAZERS_ERROR: (payload) => payload
 });

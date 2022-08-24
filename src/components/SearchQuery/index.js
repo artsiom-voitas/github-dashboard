@@ -1,2 +1,3 @@
-import SearchQuery from "./SearchQuery";
+import SearchQuery from './SearchQuery';
+
 export default SearchQuery;

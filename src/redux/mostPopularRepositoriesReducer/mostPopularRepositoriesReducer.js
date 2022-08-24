@@ -1,20 +1,20 @@
 import {
   getPopularRepositoriesError,
   getPopularRepositoriesRequest,
-  getPopularRepositoriesSuccess,
-} from "./actions";
+  getPopularRepositoriesSuccess
+} from './actions';
 
-import { handleActions } from "redux-actions";
+import { handleActions } from 'redux-actions';
 
 const initialState = {
   isLoading: false,
   error: null,
-  items: [],
+  items: []
 };
 
 export const mostPopularRepositoriesReducer = handleActions(
   {
-    [getPopularRepositoriesRequest.toString()]: (state, _action) => {
+    [getPopularRepositoriesRequest.toString()]: (state) => {
       return { ...state, isLoading: true };
     },
     [getPopularRepositoriesSuccess.toString()]: (state, action) => {
@@ -22,7 +22,7 @@ export const mostPopularRepositoriesReducer = handleActions(
     },
     [getPopularRepositoriesError.toString()]: (state, action) => {
       return { ...state, isLoading: false, error: action.payload };
-    },
+    }
   },
   initialState
 );
