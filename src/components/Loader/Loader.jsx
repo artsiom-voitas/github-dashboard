@@ -1,8 +1,8 @@
-import React from "react";
-import { Spinner } from "react-bootstrap";
-import "./loader.scss";
+import React from 'react';
+import { Spinner } from 'react-bootstrap';
+import './loader.scss';
 
-function Loader(props) {
+const Loader = React.memo(function Loader() {
   return (
     <div className="loader">
       <Spinner animation="border" role="status" variant="primary">
@@ -10,6 +10,5 @@ function Loader(props) {
       </Spinner>
     </div>
   );
-}
-
+});
 export default Loader;
