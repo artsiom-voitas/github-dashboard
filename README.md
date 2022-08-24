@@ -36,9 +36,9 @@
 ## About The Project
 
 <p align="center">
-  <img src="src/images/main-page-screenshot.png" height="300" alt="Main page screenshot">
+  <img src="src/images/main-page-screenshot.png" width="320" alt="Main page screenshot">
 &nbsp; &nbsp; &nbsp; &nbsp;
-  <img src="src/images/repository-page-screenshot.png" height="300" alt="Repository page screenshot">
+  <img src="src/images/repository-page-screenshot.png" width="320" alt="Repository page screenshot">
 </p>
 
 
@@ -62,7 +62,7 @@ This application is built on the GitHub API. With it, you can:
 
 ## Contact
 
-Artyom Voitas - [@artyom_voitas](https://twitter.com/artyom_voitas) - artsiom.voitas@gmail.com
+Artsiom Voitas - [@artyom_voitas](https://twitter.com/artyom_voitas) - artsiom.voitas@gmail.com
 
 Project Link: [https://github.com/artyom-voitas/github-dashboard](https://github.com/artyom-voitas/github-dashboard)
 
