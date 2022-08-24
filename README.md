@@ -10,7 +10,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/artyom-voitas/github-dashboard/">
+  <a target="_blank" href="https://github.com/artyom-voitas/github-dashboard/">
     <img src="src/images/github-logo.svg" alt="Logo" width="80" height="80">
   </a>
 
@@ -48,14 +48,14 @@ This application is built on the GitHub API. With it, you can:
 * perform a repository search via a query
 * view the repository card (owner, owner's photo, date of last commit, description, most popular contributors)
 
-<p align="right">(<a href="#">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
 * [![React][React.js]][React-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
-<p align="right">(<a href="#">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- CONTACT -->
@@ -66,7 +66,7 @@ Artyom Voitas - [@artyom_voitas](https://twitter.com/artyom_voitas) - artsiom.vo
 
 Project Link: [https://github.com/artyom-voitas/github-dashboard](https://github.com/artyom-voitas/github-dashboard)
 
-<p align="right">(<a href="#">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -76,30 +76,30 @@ Project Link: [https://github.com/artyom-voitas/github-dashboard](https://github
 
 * [Artsiom Dadychanka](https://github.com/adadychanka) - teacher, mentor
 
-<p align="right">(<a href="#">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/artyom-voitas/github-dashboard.svg?style=for-the-badge
 
 [contributors-url]: https://github.com/artyom-voitas/github-dashboard/graphs/contributors
 
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/artyom-voitas/github-dashboard.svg?style=for-the-badge
 
 [forks-url]: https://github.com/artyom-voitas/github-dashboard/network/members
 
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/artyom-voitas/github-dashboard.svg?style=for-the-badge
 
 [stars-url]: https://github.com/artyom-voitas/github-dashboard/stargazers
 
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/artyom-voitas/github-dashboard.svg?style=for-the-badge
 
 [issues-url]: https://github.comartyom-voitas/github-dashboard/issues
 
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/artyom-voitas/github-dashboard.svg?style=for-the-badge
 
 [license-url]: https://github.com/artyom-voitas/github-dashboard/blob/master/LICENSE.txt
 
