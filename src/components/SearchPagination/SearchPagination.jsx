@@ -7,10 +7,10 @@ function SearchPagination(props) {
   const { query, currentPage } = props;
 
   const totalCount = useSelector(
-    (state) => state.searchRepositoriesReducer.totalCount
+    (state) => state.searchRepositories.totalCount,
   );
   const perPage = useSelector(
-    (state) => state.searchRepositoriesReducer.perPage
+      (state) => state.searchRepositories.perPage,
   );
 
   const countTotalPages = function (totalCount, reposPerPage) {

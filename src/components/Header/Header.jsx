@@ -11,7 +11,7 @@ function Header(_props)
   const [searchValue, setSearchValue] = useState('')
   const dispatch                      = useDispatch()
   const currentPage                   = useSelector(
-      (state) => state.searchRepositoriesReducer.currentPage,
+      (state) => state.searchRepositories.currentPage,
   )
 
   function onInputChange(event)

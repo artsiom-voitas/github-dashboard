@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import repositoryImage from "../../images/repository-img.svg";
 import "./search-item-card.scss";
-import starImage from "../../images/star.svg";
-import { getRepository } from "../../redux/repositoryReducer/thunk";
-import { getRepositoryStargazers } from "../../redux/repositoryStargazersReducer/thunk";
+import starImage from '../../images/star.svg'
+import { getRepository } from '../../redux/repositoryCardReducer/thunk'
+import { getRepositoryStargazers } from '../../redux/repositoryStargazersReducer/thunk'
 import { formatLastCommitDate } from "../../services/formatLastCommitDate";
 
 function SearchItemCard(props) {

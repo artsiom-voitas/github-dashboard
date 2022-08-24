@@ -14,17 +14,17 @@ const initialState = {
   message: null,
 };
 
-export const repositoryReducer = handleActions(
-  {
-    [getRepositoryRequest.toString()]: (state, _action) => {
-      return { ...state, isLoading: true };
-    },
-    [getRepositorySuccess.toString()]: (state, action) => {
-      return {
-        ...state,
-        isLoading: false,
-        items: action.payload,
-        owner: action.payload.owner,
+export const repositoryCardReducer = handleActions(
+    {
+        [getRepositoryRequest.toString()]: (state, _action) => {
+            return { ...state, isLoading: true }
+        },
+        [getRepositorySuccess.toString()]: (state, action) => {
+            return {
+                ...state,
+                isLoading: false,
+                items:     action.payload,
+                owner:     action.payload.owner,
         message: action.payload.message,
       };
     },

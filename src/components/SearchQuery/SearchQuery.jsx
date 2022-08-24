@@ -19,13 +19,13 @@ function SearchQuery(_props)
   const { query, page } = queryString.parse(search)
   const pageNumber      = Number(page)
 
-  const repos      = useSelector((state) => state.searchRepositoriesReducer.items)
+  const repos      = useSelector((state) => state.searchRepositories.items)
   const totalCount = useSelector(
-      (state) => state.searchRepositoriesReducer.totalCount,
+      (state) => state.searchRepositories.totalCount,
   )
 
   const isLoading = useSelector(
-      (state) => state.searchRepositoriesReducer.isLoading,
+      (state) => state.searchRepositories.isLoading,
   )
 
   useEffect(() => {

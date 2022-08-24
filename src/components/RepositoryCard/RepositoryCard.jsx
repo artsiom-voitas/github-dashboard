@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import starImage from "../../images/star.svg";
-import { getRepository } from "../../redux/repositoryReducer/thunk";
-import { getRepositoryStargazers } from "../../redux/repositoryStargazersReducer/thunk";
+import starImage from '../../images/star.svg'
+import { getRepository } from '../../redux/repositoryCardReducer/thunk'
+import { getRepositoryStargazers } from '../../redux/repositoryStargazersReducer/thunk'
 import { formatLastCommitDate } from "../../services/formatLastCommitDate";
 import ErrorMessage from "../ErrorMessage/index";
 import Header from "../Header/index";
@@ -15,14 +15,14 @@ function RepositoryCard(_props)
 {
   const { username, repositoryName } = useParams()
   const dispatch                     = useDispatch()
-  const repository                   = useSelector((state) => state.repositoryReducer.items)
+  const repository                   = useSelector((state) => state.repositoryCard.items)
   const commitDate                   = useSelector(
-      (state) => state.repositoryReducer.items['updated_at'],
+      (state) => state.repositoryCard.items['updated_at'],
   )
-  const owner                        = useSelector((state) => state.repositoryReducer.owner)
-  const serverRespond                = useSelector((state) => state.repositoryReducer.message)
+  const owner                        = useSelector((state) => state.repositoryCard.owner)
+  const serverRespond                = useSelector((state) => state.repositoryCard.message)
   const stargazers                   = useSelector(
-      (state) => state.repositoryStargazersReducer.stargazers,
+      (state) => state.repositoryStargazers.stargazers,
   )
   const tenTopStargazers             = stargazers.slice(0, 10)
 
@@ -32,7 +32,7 @@ function RepositoryCard(_props)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [username, repositoryName])
 
-  const isLoading   = useSelector((state) => state.repositoryReducer.isLoading)
+  const isLoading   = useSelector((state) => state.repositoryCard.isLoading)
   const description = repository.description
 
   let formattedLastCommitDate
