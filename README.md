@@ -38,7 +38,7 @@
 <p align="center">
   <img src="src/images/main-page-screenshot.png" width="320" alt="Main page screenshot">
 &nbsp; &nbsp; &nbsp; &nbsp;
-  <img src="src/images/repository-page-screenshot.png" width="320" alt="Repository page screenshot">
+  <img align="justify" src="src/images/repository-page-screenshot.png" width="320" alt="Repository page screenshot">
 </p>
 
 
@@ -48,14 +48,10 @@ This application is built on the GitHub API. With it, you can:
 * perform a repository search via a query
 * view the repository card (owner, owner's photo, date of last commit, description, most popular contributors)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### Built With
 
 * [![React][React.js]][React-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- CONTACT -->
@@ -66,18 +62,12 @@ Artsiom Voitas - [@artyom_voitas](https://twitter.com/artyom_voitas) - artsiom.v
 
 Project Link: [https://github.com/artyom-voitas/github-dashboard](https://github.com/artyom-voitas/github-dashboard)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- ACKNOWLEDGMENTS -->
 
 ## Acknowledgments
 
 * [Artsiom Dadychanka](https://github.com/adadychanka) - teacher, mentor
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
