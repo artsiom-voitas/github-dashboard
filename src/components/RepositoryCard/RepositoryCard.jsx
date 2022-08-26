@@ -97,10 +97,7 @@ const RepositoryCard = React.memo(function RepositoryCard() {
                         <img
                           src={stargazer['avatar_url']}
                           alt="contributor avatar"
-                          style={{
-                            width: 80,
-                            borderRadius: 75
-                          }}
+                          className="avatar--small"
                         />
                         <p className="link">{stargazer['login']}</p>
                       </a>
