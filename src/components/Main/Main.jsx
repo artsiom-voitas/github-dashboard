@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './main.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMostPopularRepositories } from '../../redux/mostPopularRepositoriesReducer/thunk';
@@ -21,11 +21,11 @@ const Main = React.memo(function Main() {
       {!repos ? (
         <ErrorMessage />
       ) : (
-        <Fragment>
+        <>
           <Header />
           <div className="main__title mb-3">Top 10 most popular repositories</div>
           <RepositoriesList repositories={repos} isLoading={isLoading} />
-        </Fragment>
+        </>
       )}
     </div>
   );

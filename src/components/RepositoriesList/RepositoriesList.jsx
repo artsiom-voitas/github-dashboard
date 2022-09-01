@@ -29,7 +29,16 @@ const RepositoriesList = React.memo(function RepositoriesList(props) {
 });
 
 RepositoriesList.propTypes = {
-  repositories: PropTypes.array.isRequired,
+  repositories: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      description: PropTypes.string,
+      updated_at: PropTypes.string,
+      stargazers_count: PropTypes.number,
+      owner: PropTypes.object
+    })
+  ).isRequired,
   isLoading: PropTypes.bool.isRequired
 };
 
