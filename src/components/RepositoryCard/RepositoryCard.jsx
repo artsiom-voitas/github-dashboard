@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import starImage from '../../images/star.svg';
@@ -19,7 +19,7 @@ const RepositoryCard = React.memo(function RepositoryCard() {
   const owner = useSelector((state) => state.repositoryCard.owner);
   const serverRespond = useSelector((state) => state.repositoryCard.message);
   const stargazers = useSelector((state) => state.repositoryStargazers.stargazers);
-  const tenTopStargazers = stargazers.slice(0, 10);
+  const tenTopStargazers = useMemo(() => stargazers.slice(0, 10), [stargazers]);
 
   useEffect(() => {
     dispatch(getRepository(username, repositoryName));
@@ -28,11 +28,7 @@ const RepositoryCard = React.memo(function RepositoryCard() {
 
   const isLoading = useSelector((state) => state.repositoryCard.isLoading);
   const description = repository.description;
-
-  let formattedLastCommitDate;
-  if (commitDate) {
-    formattedLastCommitDate = formatLastCommitDate(commitDate);
-  }
+  const formattedLastCommitDate = formatLastCommitDate(commitDate);
 
   if (!repository) {
     return <ErrorMessage />;
@@ -71,15 +67,13 @@ const RepositoryCard = React.memo(function RepositoryCard() {
               </Alert>
             ) : (
               <Alert variant="primary" className="text-center font-italic">
-                {/* eslint-disable-next-line react/no-unescaped-entities */}
-                Repository doesn't have a description yet
+                {"Repository doesn't have a description yet"}
               </Alert>
             )}
             {tenTopStargazers.length < 1 ? (
               <Alert variant="info">
                 <h5 className="text-center font-italic f-16 mb-0">
-                  {/* eslint-disable-next-line react/no-unescaped-entities */}
-                  Repository doesn't have contributors yet
+                  {"Repository doesn't have contributors yet"}
                 </h5>
               </Alert>
             ) : (

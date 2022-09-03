@@ -3,5 +3,7 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { enGB } from 'date-fns/locale';
 
 export function formatLastCommitDate(date) {
-  return formatDistanceToNow(parseISO(date), { locale: enGB });
+  if (date) {
+    return formatDistanceToNow(parseISO(date), { locale: enGB });
+  }
 }
