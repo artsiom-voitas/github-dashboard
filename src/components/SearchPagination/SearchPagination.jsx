@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Pagination from 'react-bootstrap/Pagination';
 import { useSelector } from 'react-redux';
+import { getLinkToPage } from '../../services/getLinkToPage';
+import { getTotalPagesAmount } from '../../services/getTotalPagesAmount';
 
 const SearchPagination = React.memo(function SearchPagination(props) {
   const { query, currentPage } = props;
@@ -9,66 +11,85 @@ const SearchPagination = React.memo(function SearchPagination(props) {
   const totalCount = useSelector((state) => state.searchRepositories.totalCount);
   const perPage = useSelector((state) => state.searchRepositories.perPage);
 
-  const countTotalPages = function (totalCount, reposPerPage) {
-    const pagesAmount = Math.ceil(totalCount / reposPerPage);
-    if (pagesAmount > 100) {
-      return 100;
-    } else {
-      return pagesAmount;
-    }
-  };
+  const pagesAmount = getTotalPagesAmount(totalCount, perPage);
 
-  const pagesAmount = countTotalPages(totalCount, perPage);
-
-  function setUrl(page) {
-    return `/github-dashboard/#/search?query=${query}&page=${page}`;
-  }
+  const firstPage = 1;
+  const lastPage = pagesAmount;
+  const [onePage, twoPages, threePages, fourPages, fivePages, sixPages] = [1, 2, 3, 4, 5, 6];
 
   return (
     <Pagination className="mt-4 d-flex justify-content-center">
-      {currentPage === 1 ? (
-        <Pagination.Prev disabled />
-      ) : (
-        <Pagination.Prev href={setUrl(currentPage - 1)} />
-      )}
-      {currentPage !== 1 && <Pagination.Item href={setUrl(1)}>1</Pagination.Item>}
-      {currentPage < 5 || pagesAmount <= 6 ? null : <Pagination.Ellipsis />}
-      {pagesAmount >= 5 && pagesAmount === currentPage ? (
-        <Pagination.Item href={setUrl(currentPage - 4)}>{currentPage - 4}</Pagination.Item>
-      ) : null}
-      {currentPage > pagesAmount - 2 && pagesAmount >= 5 ? (
-        <Pagination.Item href={setUrl(currentPage - 3)}>{currentPage - 3}</Pagination.Item>
-      ) : null}
+      <Pagination.Prev
+        disabled={currentPage === firstPage}
+        href={getLinkToPage(query, currentPage - onePage)}
+      />
 
-      {currentPage > 3 && pagesAmount >= 3 ? (
-        <Pagination.Item href={setUrl(currentPage - 2)}>{currentPage - 2}</Pagination.Item>
-      ) : null}
-      {currentPage > 2 && pagesAmount >= 2 ? (
-        <Pagination.Item href={setUrl(currentPage - 1)}>{currentPage - 1}</Pagination.Item>
-      ) : null}
+      {currentPage !== firstPage && (
+        <Pagination.Item href={getLinkToPage(query, firstPage)}>1</Pagination.Item>
+      )}
+
+      {(currentPage >= fivePages || pagesAmount <= sixPages) && <Pagination.Ellipsis />}
+
+      {pagesAmount >= fivePages && pagesAmount === currentPage && (
+        <Pagination.Item href={getLinkToPage(query, currentPage - fourPages)}>
+          {currentPage - fourPages}
+        </Pagination.Item>
+      )}
+
+      {currentPage > pagesAmount - twoPages && pagesAmount >= fivePages && (
+        <Pagination.Item href={getLinkToPage(query, currentPage - threePages)}>
+          {currentPage - threePages}
+        </Pagination.Item>
+      )}
+
+      {currentPage > threePages && pagesAmount >= threePages && (
+        <Pagination.Item href={getLinkToPage(query, currentPage - twoPages)}>
+          {currentPage - twoPages}
+        </Pagination.Item>
+      )}
+
+      {currentPage > twoPages && pagesAmount >= twoPages && (
+        <Pagination.Item href={getLinkToPage(query, currentPage - onePage)}>
+          {currentPage - onePage}
+        </Pagination.Item>
+      )}
+
       <Pagination.Item active>{currentPage}</Pagination.Item>
-      {currentPage + 1 > pagesAmount ? null : (
-        <Pagination.Item href={setUrl(currentPage + 1)}>{currentPage + 1}</Pagination.Item>
-      )}
-      {currentPage + 2 > pagesAmount ? null : (
-        <Pagination.Item href={setUrl(currentPage + 2)}>{currentPage + 2}</Pagination.Item>
-      )}
-      {currentPage + 3 <= pagesAmount && currentPage <= 2 ? (
-        <Pagination.Item href={setUrl(currentPage + 3)}>{currentPage + 3}</Pagination.Item>
-      ) : null}
-      {currentPage === 1 && pagesAmount >= 5 ? (
-        <Pagination.Item href={setUrl(currentPage + 4)}>{currentPage + 4}</Pagination.Item>
-      ) : null}
 
-      {currentPage + 4 > pagesAmount || pagesAmount <= 6 ? null : <Pagination.Ellipsis />}
-      {currentPage + 3 > pagesAmount || pagesAmount < 6 ? null : (
-        <Pagination.Item href={setUrl(pagesAmount)}>{pagesAmount}</Pagination.Item>
+      {currentPage + onePage < pagesAmount && (
+        <Pagination.Item href={getLinkToPage(query, currentPage + onePage)}>
+          {currentPage + onePage}
+        </Pagination.Item>
       )}
-      {currentPage === pagesAmount ? (
-        <Pagination.Next disabled />
-      ) : (
-        <Pagination.Next href={setUrl(currentPage + 1)} />
+
+      {currentPage + twoPages < pagesAmount && (
+        <Pagination.Item href={getLinkToPage(query, currentPage + twoPages)}>
+          {currentPage + twoPages}
+        </Pagination.Item>
       )}
+
+      {currentPage + threePages <= pagesAmount && currentPage <= twoPages && (
+        <Pagination.Item href={getLinkToPage(query, currentPage + threePages)}>
+          {currentPage + threePages}
+        </Pagination.Item>
+      )}
+
+      {currentPage === firstPage && pagesAmount >= fivePages && (
+        <Pagination.Item href={getLinkToPage(query, currentPage + fourPages)}>
+          {currentPage + fourPages}
+        </Pagination.Item>
+      )}
+
+      {currentPage + fourPages < pagesAmount && pagesAmount >= sixPages && <Pagination.Ellipsis />}
+
+      {currentPage + threePages < pagesAmount && pagesAmount > sixPages && (
+        <Pagination.Item href={getLinkToPage(query, lastPage)}>{lastPage}</Pagination.Item>
+      )}
+
+      <Pagination.Next
+        disabled={currentPage === pagesAmount}
+        href={getLinkToPage(query, currentPage + onePage)}
+      />
     </Pagination>
   );
 });
