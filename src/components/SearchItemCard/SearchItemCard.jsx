@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -13,12 +13,15 @@ const SearchItemCard = React.memo(function SearchItemCard(props) {
   const { title, description, lastCommitDate, stargazers, owner } = props;
   const dispatch = useDispatch();
 
-  const formattedLastCommitDate = formatLastCommitDate(lastCommitDate);
+  const formattedLastCommitDate = useMemo(
+    () => formatLastCommitDate(lastCommitDate),
+    [lastCommitDate]
+  );
 
-  function handleClick() {
+  const handleClick = useCallback(() => {
     dispatch(getRepository(owner, title));
     dispatch(getRepositoryStargazers(owner, title));
-  }
+  }, [owner, title, dispatch]);
 
   return (
     <div className="item-card">
