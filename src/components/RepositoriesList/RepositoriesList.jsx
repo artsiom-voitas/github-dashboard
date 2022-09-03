@@ -9,15 +9,15 @@ const RepositoriesList = React.memo(function RepositoriesList(props) {
   return (
     <div>
       {!isLoading ? (
-        repositories.map((repos) => {
+        repositories.map((repository) => {
           return (
             <SearchItemCard
-              key={repos.id}
-              title={repos.name}
-              description={repos.description}
-              lastCommitDate={repos['updated_at']}
-              stargazers={repos['stargazers_count']}
-              owner={repos.owner['login']}
+              key={repository.id}
+              title={repository.name}
+              description={repository.description}
+              lastCommitDate={repository['updated_at']}
+              stargazers={repository['stargazers_count']}
+              owner={repository.owner['login']}
             />
           );
         })
