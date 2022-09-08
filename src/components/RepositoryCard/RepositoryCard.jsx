@@ -17,7 +17,7 @@ const RepositoryCard = React.memo(function RepositoryCard() {
   const repository = useSelector((state) => state.repositoryCard.repository);
   const commitDate = useSelector((state) => state.repositoryCard.repository['updated_at']);
   const owner = useSelector((state) => state.repositoryCard.owner);
-  const errorFeedback = useSelector((state) => state.repositoryCard.error);
+  const errorMessage = useSelector((state) => state.repositoryCard.error);
   const stargazers = useSelector((state) => state.repositoryStargazers.stargazers);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const RepositoryCard = React.memo(function RepositoryCard() {
 
   if (!repository || !stargazers) {
     return <ErrorMessage />;
-  } else if (errorFeedback) {
+  } else if (errorMessage) {
     return <ErrorMessage message="You have entered a non-existent page." />;
   } else {
     return (

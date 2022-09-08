@@ -10,6 +10,7 @@ export function getRepository(owner, repositoryName) {
           dispatch(getRepositoryError(result.message));
         } else {
           dispatch(getRepositorySuccess(result));
+          dispatch(getRepositoryError(null));
         }
       })
       .catch((error) => {
