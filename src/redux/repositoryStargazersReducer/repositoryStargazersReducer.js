@@ -11,6 +11,8 @@ const initialState = {
   stargazers: []
 };
 
+const maxNumberOfStargazers = 10;
+
 export const repositoryStargazersReducer = handleActions(
   {
     [getRepositoryStargazersRequest.toString()]: (state) => {
@@ -20,7 +22,7 @@ export const repositoryStargazersReducer = handleActions(
       return {
         ...state,
         isLoading: false,
-        stargazers: action.payload
+        stargazers: action.payload.slice(0, maxNumberOfStargazers)
       };
     },
     [getRepositoryStargazersError.toString()]: (state, action) => {

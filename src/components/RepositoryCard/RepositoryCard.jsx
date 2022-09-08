@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import starImage from '../../images/star.svg';
@@ -14,12 +14,11 @@ import Alert from 'react-bootstrap/Alert';
 const RepositoryCard = React.memo(function RepositoryCard() {
   const { username, repositoryName } = useParams();
   const dispatch = useDispatch();
-  const repository = useSelector((state) => state.repositoryCard.items);
-  const commitDate = useSelector((state) => state.repositoryCard.items['updated_at']);
+  const repository = useSelector((state) => state.repositoryCard.repository);
+  const commitDate = useSelector((state) => state.repositoryCard.repository['updated_at']);
   const owner = useSelector((state) => state.repositoryCard.owner);
-  const serverRespond = useSelector((state) => state.repositoryCard.message);
+  const errorFeedback = useSelector((state) => state.repositoryCard.error);
   const stargazers = useSelector((state) => state.repositoryStargazers.stargazers);
-  const tenTopStargazers = useMemo(() => stargazers.slice(0, 10), [stargazers]);
 
   useEffect(() => {
     dispatch(getRepository(username, repositoryName));
@@ -27,15 +26,13 @@ const RepositoryCard = React.memo(function RepositoryCard() {
   }, [dispatch, username, repositoryName]);
 
   const isLoading = useSelector((state) => state.repositoryCard.isLoading);
-  const description = repository.description;
+  const { description } = repository;
   const formattedLastCommitDate = formatLastCommitDate(commitDate);
 
-  if (!repository) {
+  if (!repository || !stargazers) {
     return <ErrorMessage />;
-  }
-
-  if (serverRespond === 'Not Found') {
-    return <ErrorMessage message="You have entered a non-existent page" />;
+  } else if (errorFeedback) {
+    return <ErrorMessage message="You have entered a non-existent page." />;
   } else {
     return (
       <div>
@@ -61,26 +58,32 @@ const RepositoryCard = React.memo(function RepositoryCard() {
               </div>
               <div className="text-center mt-2">Repository language: {repository.language}</div>
             </Alert>
-            {description ? (
+
+            {description && (
               <Alert variant="primary" className="text-center">
                 {repository.description}
               </Alert>
-            ) : (
+            )}
+
+            {!description && (
               <Alert variant="primary" className="text-center font-italic">
                 {"Repository doesn't have a description yet"}
               </Alert>
             )}
-            {tenTopStargazers.length < 1 ? (
+
+            {stargazers.length < 1 && (
               <Alert variant="info">
                 <h5 className="text-center font-italic f-16 mb-0">
                   {"Repository doesn't have contributors yet"}
                 </h5>
               </Alert>
-            ) : (
+            )}
+
+            {!stargazers.length < 1 && (
               <Alert variant="info">
                 <h5 className="text-center mb-5">The best contributors to the repository</h5>
                 <div className="d-flex gap-5 flex-wrap align-items-center justify-content-center">
-                  {tenTopStargazers?.map((stargazer, index) => {
+                  {stargazers?.map((stargazer, index) => {
                     return (
                       <a
                         href={stargazer['html_url']}

@@ -5,7 +5,7 @@ import { handleActions } from 'redux-actions';
 const initialState = {
   isLoading: false,
   error: null,
-  items: {},
+  repository: {},
   owner: {},
   message: null
 };
@@ -19,13 +19,13 @@ export const repositoryCardReducer = handleActions(
       return {
         ...state,
         isLoading: false,
-        items: action.payload,
+        repository: action.payload,
         owner: action.payload.owner,
         message: action.payload.message
       };
     },
     [getRepositoryError.toString()]: (state, action) => {
-      return { ...state, isLoading: false, error: action.payload.status };
+      return { ...state, isLoading: false, error: action.payload };
     }
   },
   initialState

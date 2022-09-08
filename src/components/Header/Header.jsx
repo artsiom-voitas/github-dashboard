@@ -1,7 +1,7 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { InputGroup, Form, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../../images/github-logo.svg';
 import './header.scss';
 import { getRepositoriesBySearchQuery } from '../../redux/searchRepositoriesReducer/thunk';
@@ -9,15 +9,24 @@ import { getRepositoriesBySearchQuery } from '../../redux/searchRepositoriesRedu
 const Header = React.memo(function Header() {
   const [searchValue, setSearchValue] = useState('');
   const dispatch = useDispatch();
-  const currentPage = useSelector((state) => state.searchRepositories.currentPage);
+  const firstPage = 1;
+
+  const searchQuery = useSelector((state) => state.searchRepositories.searchValue);
+
+  const location = useLocation().pathname;
+  useEffect(() => {
+    if (location === '/search') {
+      setSearchValue(searchQuery);
+    }
+  }, [searchQuery, location]);
 
   const handleChange = useCallback((event) => {
     setSearchValue(event.target.value);
   }, []);
 
   const handleSearch = useCallback(() => {
-    dispatch(getRepositoriesBySearchQuery(searchValue, currentPage));
-  }, [searchValue, currentPage, dispatch]);
+    dispatch(getRepositoriesBySearchQuery(searchValue, firstPage));
+  }, [searchValue, firstPage, dispatch]);
 
   return (
     <header>
@@ -32,7 +41,7 @@ const Header = React.memo(function Header() {
           value={searchValue}
           onChange={handleChange}
         />
-        <Link to={`/search?query=${searchValue}&page=${currentPage}`} className="ms-2">
+        <Link to={`/search?query=${searchValue}&page=${firstPage}`} className="ms-2">
           <Button variant="primary" onClick={handleSearch}>
             Search
           </Button>

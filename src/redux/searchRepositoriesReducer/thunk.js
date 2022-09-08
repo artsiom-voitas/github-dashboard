@@ -2,7 +2,8 @@ import { fetchRepositoriesBySearchQuery } from '../../services/repositories';
 import {
   searchRepositoriesError,
   searchRepositoriesRequest,
-  searchRepositoriesSuccess
+  searchRepositoriesSuccess,
+  setSearchValue
 } from './actions';
 
 export function getRepositoriesBySearchQuery(searchQuery, page) {
@@ -11,6 +12,7 @@ export function getRepositoriesBySearchQuery(searchQuery, page) {
     fetchRepositoriesBySearchQuery({ searchQuery, page })
       .then((result) => {
         dispatch(searchRepositoriesSuccess(result));
+        dispatch(setSearchValue(searchQuery));
       })
       .catch((error) => {
         dispatch(searchRepositoriesError(error));

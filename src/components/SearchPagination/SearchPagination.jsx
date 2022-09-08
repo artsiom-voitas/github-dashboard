@@ -28,7 +28,7 @@ const SearchPagination = React.memo(function SearchPagination(props) {
         <Pagination.Item href={getLinkToPage(query, firstPage)}>1</Pagination.Item>
       )}
 
-      {(currentPage >= fivePages || pagesAmount <= sixPages) && <Pagination.Ellipsis />}
+      {currentPage >= fivePages && pagesAmount >= sixPages && <Pagination.Ellipsis />}
 
       {pagesAmount >= fivePages && pagesAmount === currentPage && (
         <Pagination.Item href={getLinkToPage(query, currentPage - fourPages)}>
