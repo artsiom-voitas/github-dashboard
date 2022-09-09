@@ -2,7 +2,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+![MIT License][license-shield]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -85,11 +85,9 @@ Project Link: [https://github.com/artyom-voitas/github-dashboard](https://github
 
 [issues-shield]: https://img.shields.io/github/issues/artyom-voitas/github-dashboard.svg?style=for-the-badge
 
-[issues-url]: https://github.comartyom-voitas/github-dashboard/issues
+[issues-url]: https://github.com/artyom-voitas/github-dashboard/issues
 
 [license-shield]: https://img.shields.io/github/license/artyom-voitas/github-dashboard.svg?style=for-the-badge
-
-[license-url]: https://github.com/artyom-voitas/github-dashboard/blob/master/LICENSE.txt
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 
