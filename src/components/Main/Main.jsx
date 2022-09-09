@@ -14,6 +14,7 @@ const Main = React.memo(function Main() {
 
   useEffect(() => {
     dispatch(getMostPopularRepositories());
+    document.title = `GitHub Dashboard`;
   }, [dispatch]);
 
   return (

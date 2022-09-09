@@ -22,6 +22,7 @@ const SearchQuery = React.memo(function SearchQuery() {
 
   useEffect(() => {
     dispatch(getRepositoriesBySearchQuery(query, page));
+    document.title = `Search · ${query}`;
   }, [query, page, dispatch]);
 
   return (

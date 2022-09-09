@@ -23,6 +23,7 @@ const RepositoryCard = React.memo(function RepositoryCard() {
   useEffect(() => {
     dispatch(getRepository(username, repositoryName));
     dispatch(getRepositoryStargazers(username, repositoryName));
+    document.title = `${username}/${repositoryName}`;
   }, [dispatch, username, repositoryName]);
 
   const isLoading = useSelector((state) => state.repositoryCard.isLoading);
