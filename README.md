@@ -10,7 +10,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a target="_blank" href="https://github.com/artyom-voitas/github-dashboard/">
+  <a target="_blank" href="https://github.com/artsiom-voitas/github-dashboard/">
     <img src="src/images/github-logo.svg" alt="Logo" width="80" height="80">
   </a>
 
@@ -19,12 +19,12 @@
   <p align="center">
     Search for repositories on GitHub
     <br />
-    <a href="https://artyom-voitas.github.io/github-dashboard"><strong>View Demo</strong></a>
+    <a href="https://artsiom-voitas.github.io/github-dashboard"><strong>View Demo</strong></a>
     <br />
     <br />
-    <a href="https://github.com/artyom-voitas/github-dashboard/issues">Report Bug</a>
+    <a href="https://github.com/artsiom-voitas/github-dashboard/issues">Report Bug</a>
     ·
-    <a href="https://github.com/artyom-voitas/github-dashboard/issues">Request Feature</a>
+    <a href="https://github.com/artsiom-voitas/github-dashboard/issues">Request Feature</a>
   </p>
 </div>
 
@@ -57,9 +57,9 @@ This application is built on the GitHub API. With it, you can:
 
 ## Contact
 
-Artsiom Voitas - [@artyom_voitas](https://twitter.com/artyom_voitas) - artsiom.voitas@gmail.com
+Artsiom Voitas - [@artsiom_voitas](https://twitter.com/artsiom_voitas) - artsiom.voitas@gmail.com
 
-Project Link: [https://github.com/artyom-voitas/github-dashboard](https://github.com/artyom-voitas/github-dashboard)
+Project Link: [https://github.com/artsiom-voitas/github-dashboard](https://github.com/artsiom-voitas/github-dashboard)
 
 
 <!-- ACKNOWLEDGMENTS -->
@@ -71,29 +71,29 @@ Project Link: [https://github.com/artyom-voitas/github-dashboard](https://github
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/artyom-voitas/github-dashboard.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/artsiom-voitas/github-dashboard.svg?style=for-the-badge
 
-[contributors-url]: https://github.com/artyom-voitas/github-dashboard/graphs/contributors
+[contributors-url]: https://github.com/artsiom-voitas/github-dashboard/graphs/contributors
 
-[forks-shield]: https://img.shields.io/github/forks/artyom-voitas/github-dashboard.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/artsiom-voitas/github-dashboard.svg?style=for-the-badge
 
-[forks-url]: https://github.com/artyom-voitas/github-dashboard/network/members
+[forks-url]: https://github.com/artsiom-voitas/github-dashboard/network/members
 
-[stars-shield]: https://img.shields.io/github/stars/artyom-voitas/github-dashboard.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/artsiom-voitas/github-dashboard.svg?style=for-the-badge
 
-[stars-url]: https://github.com/artyom-voitas/github-dashboard/stargazers
+[stars-url]: https://github.com/artsiom-voitas/github-dashboard/stargazers
 
-[issues-shield]: https://img.shields.io/github/issues/artyom-voitas/github-dashboard.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/artsiom-voitas/github-dashboard.svg?style=for-the-badge
 
-[issues-url]: https://github.com/artyom-voitas/github-dashboard/issues
+[issues-url]: https://github.com/artsiom-voitas/github-dashboard/issues
 
-[license-shield]: https://img.shields.io/github/license/artyom-voitas/github-dashboard.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/artsiom-voitas/github-dashboard.svg?style=for-the-badge
 
-[license-url]: https://github.com/artyom-voitas/github-dashboard/blob/master/LICENSE
+[license-url]: https://github.com/artsiom-voitas/github-dashboard/blob/master/LICENSE
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 
-[linkedin-url]: https://www.linkedin.com/in/artyom-voitas/
+[linkedin-url]: https://www.linkedin.com/in/artsiom-voitas/
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 
